@@ -124,6 +124,11 @@ public class NotificationsUIController implements Initializable, Notifiable {
             // this uses a property change listener to get messages
             task3.addPropertyChangeListener((PropertyChangeEvent evt) -> {
                 textArea.appendText((String)evt.getNewValue() + "\n");
+                if (evt.getNewValue().equals("Task3 done.")) {
+                    task3.end();
+                    task3 = null;
+                    task3Button.setText("Start Task 3");
+                }
             });
             
             task3.start();
